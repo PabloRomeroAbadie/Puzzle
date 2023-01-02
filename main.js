@@ -6,6 +6,14 @@ let matrix = [
 
 let board = document.querySelector(".board");
 
+drawTokens();
+addEventListeners();
+
+
+
+
+
+
 function drawTokens (){
     matrix.forEach(row => row.forEach(element=>{
         if(element == ""){
@@ -16,4 +24,20 @@ function drawTokens (){
     }))
 }
 
-drawTokens();
+function addEventListeners(){
+    let tokens = document.querySelectorAll(".token");
+    tokens.forEach(token=>token.addEventListener("click", ()=>{
+
+        let actualPosition = searchPosition(token.innerText);
+        console.log(actualPosition)
+    }))
+}
+
+function searchPosition(element){
+    matrix.forEach((row,index)  => {
+        let rowElement = row.findIndex(item => item == element)
+        if(rowElement !== -1){
+        }
+    })
+    return [index, rowElement]
+} 
